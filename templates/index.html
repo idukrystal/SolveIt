@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equation Solver</title>
-    <link rel="stylesheet" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
     <script src="{{ url_for('static', filename='scripts/webassembly/bins.js') }}"></script>
 </head>
 <body>
-    <h1>Equation Solver</h1>
+    <header id="header">
+    <h1>Solve It!</h1>
 
+    </header>
+    <main>
     <!-- Buttons to select a calculation type -->
-    <button onclick="getSolver('simultaneous')">Simultaneous Equations</button>
-    <button onclick="getSolver('quadratic')">Quadratic Equations</button>
-    <button onclick="getSolver('calculator')">Calculator</button>
+    <button class="select" onclick="getSolver('simultaneous')">Simultaneous Equations</button>
+    <button class="select" onclick="getSolver('quadratic')">Quadratic Equations</button>
+    <button class="select" onclick="getSolver('calculator')">Calculator</button>
     <!-- Input field and "Solve" button -->
     <div id="equation-input">
        <br><br>
@@ -23,7 +26,21 @@
     </div>
     <button id="solve" type="button" onclick="solve()">Solve</button>
     <br><br>
+    <div id="result box">
     <h4 id="result"></h4>
+    </div>
+    </main>
+    <footer>
+        <h4>operator precedence</h4>
+        <ul>
+            <li>()</li>
+            <li>√, ^</li>
+            <li>/</li>
+            <li>÷</li>
+            <li>*, ×</li>
+            <li>+, -</li>
+        </ul>
+    </footer>
     <script>
       const solvers = {};
       let type;
@@ -37,7 +54,9 @@
 	      document.getElementById('equation-input').style.display = 'block';
 	  } else if (calculationType === 'quadratic') {
 	      document.getElementById('equation-input').style.display = 'block';
-	  } 
+	  } else {
+        document.getElementById('equation-input').style.display = 'block';
+      }
       }
 
       function readyToSolve() {
