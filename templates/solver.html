@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Solver - {{ type }}</title> <!-- Dynamic title -->
+</head>
+<body>
+    <h1>{{ type }}Equation Solver</h1>
+
+    <!-- Form for entering an equation -->
+    <form action="#" method="post">
+        <label for="equation">Enter an Equation:</label>
+        <input type="text" id="equation" name="equation" placeholder="e.g., 2x + 3 = 7" required>
+        <br><br>
+        <input type="submit" value="Solve">
+    </form>
+
+    <!-- Display the result here -->
+    <div id="result">
+        <!-- The solved equation result will be displayed here -->
+    </div>
+</body>
+</html>
+

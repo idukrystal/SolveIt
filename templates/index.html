@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Solver</title>
+    <link rel="stylesheet" >
+    <script src="{{ url_for('static', filename='scripts/webassembly/bins.js') }}"></script>
+</head>
+<body>
+    <h1>Equation Solver</h1>
+
+    <!-- Buttons to select a calculation type -->
+    <button onclick="getSolver('simultaneous')">Simultaneous Equations</button>
+    <button onclick="getSolver('quadratic')">Quadratic Equations</button>
+    <button onclick="getSolver('calculator')">Calculator</button>
+    <!-- Input field and "Solve" button -->
+    <div id="equation-input">
+       <br><br>
+        <label for="equation">Enter an Equation:</label>
+        <textarea type="text" id="equation" name="equation" placeholder="e.g., 2x + 3 = 7" required></textarea>
+        <br><br>
+    </div>
+    <button id="solve" type="button" onclick="solve()">Solve</button>
+    <br><br>
+    <h4 id="result"></h4>
+    <script>
+      const solvers = {};
+      let type;
+      
+      document.getElementById('equation-input').style.display = 'none';
+      document.getElementById('solve').style.display = 'none'
+
+      function showInput(calculationType) {
+	  type = calculationType;
+	  if (calculationType === 'simultaneous') {
+	      document.getElementById('equation-input').style.display = 'block';
+	  } else if (calculationType === 'quadratic') {
+	      document.getElementById('equation-input').style.display = 'block';
+	  } 
+      }
+
+      function readyToSolve() {
+	  document.getElementById('solve').style.display = 'block';
+      }
+
+      function getSolver(type) {
+	  Module = {};
+	  showInput(type);
+	  if (!solvers[type]) {
+	      getBin(type);
+	      Module.onRuntimeInitialized = () => {
+		  solvers[type] = Module;
+		  readyToSolve();
+	      };
+	  }
+      }
+
+      function solve() {
+	  const solver = solvers[type];
+	  const inputString = document.getElementById("equation").value;
+	  const byteSize = new Blob([inputString]).size;
+	  const inputStringPointer = solver._malloc(inputString.length + 1);
+	  solver.stringToUTF8(inputString,
+			      inputStringPointer,
+			      byteSize + 1
+			     );
+	  const resultPointer = solver._solve(inputStringPointer);
+	  const resultString = solver.UTF8ToString(resultPointer);
+          document.getElementById('result').innerHTML = resultString;
+	  solver._free(inputStringPointer);
+          solver._free(resultPointer);
+	
+      }
+    </script>
+</body>
+</html>
+
