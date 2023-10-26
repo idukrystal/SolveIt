@@ -1,7 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    overflow: hidden;
+}
+
 header {
     width: 100%;
     text-align: center;
@@ -10,10 +16,60 @@ header {
     background-color: #0F52BA;
     color: white;
 }
+mmmmmn
 
 
 main , footer{
     padding: 25px;
+rrfffffmmmmmnfmmmf
+    dimsplay: block;
+    margin: 5px;
+}qbdm
+label 
+
+.equation-input {
+    margin: 0 0;
+    width: 100%;
+}
+
+answer-boxqf
+
+.qdbd.equation-inputd
+#equation {
+    margin: auto;
+    display: block;
+    font-size: 25px;
+    max-width: 700px;
+    width: 70vw;
+    padding: 5px;
+    border-color: black;
+    background-color: ;
+    resize: none;
+}
+
+.select {
+    background-color: transparent;
+    border: 2px solid black;
+    font-size: 15px;
+    margin: 0 5px 0 5px;
+    padding: 5px;
+}
+
+.select:hover {
+    background-color: #ff6357;
+    transition: 0.7s;
+    color: white;
+}
+
+#solve {
+    background-color: #ff6357;
+    width: 70vw;
+    height: 50px;
+    font-size: 15px;
+    color: white;
+    display: block;
+    border: 2px solid black;
+    margin: auto;
 }
 
 footer {
