@@ -21,7 +21,7 @@
     <div id="equation-input">
        <br><br>
         <label for="equation">Enter an Equation:</label>
-        <textarea type="text" id="equation" name="equation" placeholder="e.g., 2x + 3 = 7" required></textarea>
+        <textarea type="text" id="equation" name="equation" placeholder="e.g., 2x + 3 = 7" required autocomplete="off"></textarea>
         <br><br>
     </div>
     <button id="solve" type="button" onclick="solve()">Solve</button>
@@ -45,7 +45,8 @@
       const solvers = {};
       let type;
       
-      document.getElementById('equation-input').style.display = 'none';
+      const input = document.getElementById('equation-input');
+      input.style.display = 'none';
       document.getElementById('solve').style.display = 'none'
 
       function showInput(calculationType) {
@@ -75,19 +76,22 @@
 	  }
       }
 
-      function solve() {
+      async function solve() {
 	  const solver = solvers[type];
-	  const inputString = document.getElementById("equation").value;
+          const inputString = document.getElementById('equation').value;
 	  const byteSize = new Blob([inputString]).size;
-	  const inputStringPointer = solver._malloc(inputString.length + 1);
+	  const inputStringPointer = solver._malloc(byteSize  + 1);
 	  solver.stringToUTF8(inputString,
 			      inputStringPointer,
 			      byteSize + 1
 			     );
-	  const resultPointer = solver._solve(inputStringPointer);
+	  const resultPointer = await solver._solve(inputStringPointer);
 	  const resultString = solver.UTF8ToString(resultPointer);
-          document.getElementById('result').innerHTML = resultString;
 	  solver._free(inputStringPointer);
+      console.log("bfore 1", document.getElementById('result').value);
+          document.getElementById('result').innerHTML = "";
+          console.log("bfore 1", document.getElementById('result').value);
+          document.getElementById('result').innerHTML = resultString;
           solver._free(resultPointer);
 	
       }
