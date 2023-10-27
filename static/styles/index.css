@@ -23,9 +23,8 @@ main , footer{
     margin: 5px;
 }
 
-.equation-input {
-    margin: 0 0;
-    width: 100%;
+textarea:focus {
+    outline: none;
 }
 
 
@@ -35,10 +34,14 @@ main , footer{
     max-width: 700px;
     width: 70vw;
     border: 2px solid black;
-    padding: 5px;
+    padding: 10px;
     background-color: ;
 }
 
+.equation-input:focus-within {
+    outline: auto;
+    border: 0;
+}
 .answer-box , #equation{
     font-size: 25px;
     width: 100%;
@@ -51,6 +54,9 @@ main , footer{
 }
 .answer-box {
     text-align: end;
+    padding: 10px;
+    min-height: 35px;
+    border-top: 2px solid black;
 }
 .select {
     background-color: transparent;
