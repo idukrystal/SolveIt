@@ -29,20 +29,26 @@ main , footer{
 }
 
 
-#equation{
+.equation-input{
     margin: auto;
     display: block;
-    font-size: 25px;
     max-width: 700px;
     width: 70vw;
     padding: 5px;
     border-color: black;
     background-color: ;
-    resize: none;
 }
 
-.answer-box {
+.answer-box , #equation{
+    font-size: 25px;
+    width: 100%;
+    margin: 0;
     border: 2px solid black;
+    display: block;
+    image-resolution: none;
+    padding: 5px;
+}
+.answer-box {
     text-align: end;
 }
 .select {
