@@ -34,8 +34,8 @@ main , footer{
     display: block;
     max-width: 700px;
     width: 70vw;
+    border: 2px solid black;
     padding: 5px;
-    border-color: black;
     background-color: ;
 }
 
@@ -43,10 +43,11 @@ main , footer{
     font-size: 25px;
     width: 100%;
     margin: 0;
-    border: 2px solid black;
+    border: 0;
     display: block;
     image-resolution: none;
     padding: 5px;
+    resize: none;
 }
 .answer-box {
     text-align: end;
