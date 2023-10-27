@@ -19,7 +19,7 @@ header {
 
 main , footer{
     padding: 25px;
-    dimsplay: block;
+    display: block;
     margin: 5px;
 }
 
@@ -29,7 +29,7 @@ main , footer{
 }
 
 
-#equation {
+#equation{
     margin: auto;
     display: block;
     font-size: 25px;
@@ -41,6 +41,10 @@ main , footer{
     resize: none;
 }
 
+.answer-box {
+    border: 2px solid black;
+    text-align: end;
+}
 .select {
     background-color: transparent;
     border: 2px solid black;
