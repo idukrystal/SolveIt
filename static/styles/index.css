@@ -5,7 +5,7 @@
 }
 
 body {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 header {
@@ -40,17 +40,18 @@ textarea:focus {
 
 .equation-input:focus-within {
     outline: auto;
+    transition: 12s;
     border: 0;
 }
 .answer-box , #equation{
     font-size: 25px;
+    height: auto;
     width: 100%;
     margin: 0;
     border: 0;
     display: block;
     image-resolution: none;
     padding: 5px;
-    resize: none;
 }
 .answer-box {
     text-align: end;
@@ -91,3 +92,34 @@ footer {
     background-color: #0F52BA;
     margin-top: auto;
 }
+
+
+.grow-wrap {
+  /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
+  display: grid;
+}
+.grow-wrap::after {
+  /* Note the weird space! Needed to preventy jumpy behavior */
+  content: attr(data-replicated-value) " ";
+
+  /* This is how textarea text behaves */
+  white-space: pre-wrap;
+
+  /* Hidden from view, clicks, and screen readers */
+  visibility: hidden;
+}
+.grow-wrap > textarea {
+  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+  resize: none;
+
+  /* Firefox shows scrollbar on growth, you can hide like this. */
+  overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+  /* Identical styling required!! */
+ font-size: 25px;
+  /* Place on top of each other */
+  grid-area: 1 / 1 / 2 / 2;
+}
+
