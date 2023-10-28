@@ -4,8 +4,11 @@
     box-sizing: border-box;
 }
 
-body {
-    /*overflow: hidden;*/
+body
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
@@ -20,7 +23,10 @@ header {
 main , footer{
     padding: 25px;
     display: block;
+}
+main {
     margin: 5px;
+    flex-grow: 1;
 }
 
 textarea:focus {
@@ -85,8 +91,6 @@ textarea:focus {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     color: white;
     background-color: #0F52BA;
