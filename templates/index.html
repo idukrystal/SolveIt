@@ -13,11 +13,16 @@
 
     </header>
     <main>
+        <div class="options">
       <!-- Buttons to select a calculation type -->
-      <button class="select" onclick="getSolver('calculator')">Calculator</button>
-    <button class="select" onclick="getSolver('simultaneous')">Simultaneous Equations</button>
-    <button class="select" onclick="getSolver('quadratic')">Quadratic Equations</button>
+      <input type="radio" autocomplete="off" checked id="one" name="type" class="select" onclick="getSolver('calculator')">
+      <label for="one" class="radio-box">Calculator</label>
+    <input type="radio" autocomplete="off" class="select" id="two" name="type" onclick="getSolver('simultaneous')">
+    <label class="radio-box" for="two">Simultaneous Equation</label>
+    <input type="radio" id="three" autocomplete="off" class="select" onclick="getSolver('quadratic')" name="type">
+    <label class="radio-box" for="three">Quadratic Equation</label>
     <!-- Input field and "Solve" button -->
+        </div>
     <div class="equation-input" id="equation-input">
        <br><br>
 
@@ -102,6 +107,7 @@
           solver._free(resultPointer);
 	
       }
+      getSolver("calculator");
     </script>
 </body>
 </html>
