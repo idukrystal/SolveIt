@@ -41,9 +41,9 @@ textarea:focus {
 .equation-input:focus-within {
     outline: auto;
     transition: 12s;
-    border: 0;
+    
 }
-.answer-box , #equation{
+.answer-box , #equation, .grow-wrap::after{
     font-size: 25px;
     height: auto;
     width: 100%;

@@ -94,10 +94,11 @@
 	  const resultPointer = await solver._solve(inputStringPointer);
 	  const resultString = solver.UTF8ToString(resultPointer);
 	  solver._free(inputStringPointer);
-      console.log("bfore 1", document.getElementById('result').value);
-          document.getElementById('result').innerHTML = "";
-          console.log("bfore 1", document.getElementById('result').value);
-          document.getElementById('result').innerHTML = resultString;
+      console.log("bfore 1", document.getElementById('result').innerText);
+      console.log("result ", resultString);
+          document.getElementById('result').innerText = "";
+          console.log("bfore 2", document.getElementById('result').innerText);
+          document.getElementById('result').innerText = resultString;
           solver._free(resultPointer);
 	
       }
