@@ -17,7 +17,8 @@ var Module = typeof Module != 'undefined' ? Module : {};
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
 function getBin(name) {
-    wasmBinaryFile = `/solver/${name}`;
+    let wasmBinaryFile = `/solver/${name}`;
+
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
 // we collect those properties and reapply _after_ we configure
@@ -719,7 +720,7 @@ function createExportWrapper(name) {
 
 // include: runtime_exceptions.js
 // end include: runtime_exceptions.js
-var wasmBinaryFile;
+  
   if (!isDataURI(wasmBinaryFile)) {
     wasmBinaryFile = locateFile(wasmBinaryFile);
   }
@@ -1336,8 +1337,10 @@ var wasmImports = {
 var wasmExports = createWasm();
 var ___wasm_call_ctors = createExportWrapper('__wasm_call_ctors');
 var _solve = Module['_solve'] = createExportWrapper('solve');
-var _main = Module['_main'] = createExportWrapper('main');
 var _malloc = Module['_malloc'] = createExportWrapper('malloc');
+var _getInstruction = Module['_getInstruction'] = createExportWrapper('getInstruction');
+var _getHint = Module['_getHint'] = createExportWrapper('getHint');
+var _main = Module['_main'] = createExportWrapper('main');
 var _free = Module['_free'] = createExportWrapper('free');
 var ___errno_location = createExportWrapper('__errno_location');
 var _fflush = Module['_fflush'] = createExportWrapper('fflush');
