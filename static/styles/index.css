@@ -33,20 +33,26 @@ textarea:focus {
     outline: none;
 }
 
-
+#instruction{
+    display: block;
+    padding: 20px 15px 0 15px;
+    font-style: italic;
+    font-size: large;
+    color: grey;
+}
 .equation-input{
     margin: auto;
     display: block;
     max-width: 700px;
     width: 70vw;
     border: 2px solid black;
-    padding: 10px;
+    padding: 0px;
     background-color: ;
 }
 
 .equation-input:focus-within {
     outline: auto;
-    transition: 12s;
+    transition: 0.72s;
     
 }
 .answer-box , #equation, .grow-wrap::after{
@@ -56,12 +62,11 @@ textarea:focus {
     margin: 0;
     border: 0;
     display: block;
-    image-resolution: none;
-    padding: 5px;
+    padding: 20px 20px 50px 20px;
 }
 .answer-box {
     text-align: end;
-    padding: 10px;
+    padding-bottom: 20px;
     min-height: 35px;
     border-top: 2px solid black;
 }
