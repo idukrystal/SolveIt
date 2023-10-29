@@ -31,7 +31,6 @@ main {
 
 textarea:focus {
     outline: none;
-    background-color: aqua;
 }
 
 #instruction{
