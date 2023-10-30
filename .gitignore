@@ -1,5 +1,5 @@
 # No source file 
-*.c
+#*.c
 # Emacs files
 *~
 *\#*\#*
